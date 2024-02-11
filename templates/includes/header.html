@@ -1,0 +1,152 @@
+{% load static %}
+
+<body>
+
+    <!--  Header site  -->
+    <div class="container-fluid header head d-md-block d-none">
+
+        <div class="container" style="height: 100%;max-width: 1263px;">
+
+            <div class="row">
+
+                <div class="col-md-1 float-md-end">
+                    <div class="col-md-12 m-md-auto">
+                         <a href="{% url "HomePage:main" %}">
+                            <img src="{% static "img/1.png" %}" alt="" class="col-md-12 mt-md-3 mb-md-3"/>
+                         </a>
+                    </div>
+                </div>
+
+                <div class="col-md-7 float-md-end">
+
+                    <div class="col-md-12" style="margin: auto;margin-top: 38px;">
+
+                        <ul>
+                            <li class="drop-down"><a href="{% url "HomePage:main" %}" class="text-decoration-none text-white">صفحه اصلی</a></li>
+
+                            <li class="drop-down"><a href="{% url "Tracks:songs" %}" class="text-decoration-none text-white">آهنگ ها</a></li>
+
+                            <li class="drop-down"><a href="{% url "Tracks:albums" %}" class="text-decoration-none text-white">آلبوم ها</a></li>
+
+                            <li class="drop-down"><a href="#" class="text-decoration-none text-white">سبک های موسیقی</a>
+
+                                <div class="box-item-drop-down">
+                                    {% for category in categories %}
+                                    <div class="item-drop-down"><a href="{% url "Tracks:category_detail" category.slug %}" class="text-decoration-none">{{ category.farsi_title }}</a></div>
+                                    {% endfor %}
+
+
+                                </div>
+
+                            </li>
+
+
+                            <li class="drop-down"><a href="#" class="text-decoration-none text-white">هنرمندان</a>
+
+                                <div class="box-item-drop-down">
+                                    {% for artist in artists %}
+                                    <div class="item-drop-down"><a href="{% url 'Tracks:artist_detail' artist.slug %}" class="text-decoration-none">{{ artist.farsi_name }}</a></div>
+                                    {% endfor %}
+
+
+                                </div>
+
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 float-md-end">
+
+                    <div class="col-md-12 m-md-auto">
+
+                        <nav class="navbar" style="margin-top: 27px;">
+                            <div class="container-fluid">
+                              <form class="d-flex" role="search" method="GET" action="{% url "Tracks:search" %}">
+                                <input class="form-control me-5" name="q" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn btn-warning me-4" type="submit">Search</button>
+                              </form>
+                            </div>
+                          </nav>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!--  Responsive Header site  -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-md-none d-block">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+
+                <img src="{% static "img/1.png" %}" alt="" class="col-6"/>
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 16px;font-family: Yekan">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url "HomePage:main" %}">صفحه اصلی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "Tracks:songs" %}"> آهنگ ها</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "Tracks:albums" %}">آلبوم ها</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            سبک های موسیقی
+                        </a>
+                        <ul class="dropdown-menu text-end">
+                            {% for category in categories %}
+                            <li><a class="dropdown-item" href="{% url "Tracks:category_detail" category.slug %}">{{ category.farsi_title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            هنرمندان
+                        </a>
+                        <ul class="dropdown-menu text-end">
+                            {% for artist in artists %}
+                            <li><a class="dropdown-item" href="{% url 'Tracks:artist_detail' artist.slug %}">{{ artist.farsi_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" method="GET" action="{% url "Tracks:search" %}">
+                    <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </nav>
+
+    <!--  Responsive Header site -->
+

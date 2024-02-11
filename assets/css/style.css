@@ -1,0 +1,617 @@
+*{
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+}
+
+
+body{
+    background-color: #001441;
+}
+
+
+.Register{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@font-face {
+    font-family: 'Yekan';
+    src: url('../fonts/Yekan.eot') format('eot'),
+    url('../fonts/Yekan.woff') format('woff'),
+    url('../fonts/Yekan.ttf') format('ttf');
+}
+
+
+@font-face {
+    font-family: 'Sahel-Bold';
+    src: url('../fonts/Sahel-Bold.eot') format('eot'),
+    url('../fonts/Sahel-Bold.woff') format('woff'),
+    url('../fonts/Sahel-Bold.ttf') format('ttf');
+}
+
+
+
+
+
+.header{
+    background: linear-gradient(left , #00050f , #001953);
+    background: -moz-linear-gradient(left , #00050f , #001953);
+    background: -webkit-linear-gradient(left , #00050f , #001953);
+}
+
+
+
+
+.head{
+    position: fixed;
+    top: 0;
+}
+
+
+
+.drop-down{
+    display: inline-block;
+    font-size: 18px;
+    font-family: yekan;
+    margin-right: 40px;
+}
+
+
+
+
+.box-item-drop-down{
+    min-width: 155px;
+    min-height: 210px;
+    background-color: white;
+    position: absolute;
+    display: none;
+}
+
+
+
+.drop-down:hover .box-item-drop-down{
+    display: block;
+}
+
+
+
+
+
+.item-drop-down{
+    width: 100%;
+    padding: 2px 0;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: black;
+    font-size: 17px;
+    font-family: yekan;
+}
+
+.item-drop-down a{
+    color: black;
+}
+
+
+
+.item-drop-down:hover{
+    background-color: cyan;
+    color: wheat;
+}
+
+
+
+.box-txt{
+
+    width: 400px;
+    height: 70px;
+    background-color: cornflowerblue;
+    float: right;
+
+}
+
+
+.dd_docme{
+
+    width: 10px;
+    height: 30px;
+    background-color: #001953;
+    float: right;
+
+}
+
+
+
+
+.searcher{
+    float: right;
+    margin-right: 5px;
+    font-size: 16px;
+    font-family: yekan;
+}
+
+
+
+.docme_searcher{
+    width: 50px;
+    padding: 6px 0;
+    background-color: red;
+    float: right;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+.logo-shabake-ejtemaei{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 40px;
+}
+
+
+
+#facebook:hover{
+    background-color: blue;
+}
+
+#linkdin:hover{
+    background-color: deepskyblue;
+}
+
+#instagram:hover{
+    background: linear-gradient(left , blue , red);
+    background: -moz-linear-gradient(left , blue , red);
+    background: -webkit-linear-gradient(left , blue , red);
+}
+
+#youtub:hover{
+    background-color: red;
+}
+
+
+
+
+@media (max-width: 454px){
+
+    .logo-shabake-ejtemaei{
+        width: 12%;
+        height: 40px;
+        background-color: orange;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        border-radius: 40px;
+    }
+
+}
+
+
+
+
+
+.box-sort{
+    width: 800px;
+    height: 50px;
+    background-color: blueviolet;
+    margin: auto;
+    margin-top: 25px;
+    border-radius: 40px;
+}
+
+
+
+
+.box-matn-sort{
+    width: 200px;
+    height: 45px;
+    background-color: transparent;
+    float: right;
+    margin-right: 155px;
+    margin-top: 3px;
+}
+
+
+
+.ax-sort{
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
+    float: right;
+    background-image: url("../img/112.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.matn-sort{
+    width: 140px;
+    padding: 4px 0;
+    background-color: transparent;
+    float: right;
+    margin-right: 10px;
+    margin-top: 6px;
+    color: white;
+    font-size: 16px;
+    font-family: Sahel-Bold;
+    text-align: center;
+}
+
+
+
+
+.matn-arzan{
+    min-width: 30px;
+    padding: 5px 0;
+    background-color: transparent;
+    float: right;
+    margin-right: 40px;
+    margin-top: 7px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-family: Yekan;
+}
+
+
+
+
+.matn-gran{
+    min-width: 30px;
+    padding: 5px 0;
+    background-color: transparent;
+    float: right;
+    margin-right: 40px;
+    margin-top: 7px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-family: Yekan;
+}
+
+
+
+
+
+@media (max-width: 454px){
+
+    .box-sort{
+        width: 100%;
+        height: 140px;
+        background-color: transparent;
+        margin: auto;
+        margin-top: 25px;
+    }
+
+
+
+    .box-matn-sort{
+        width: 100%;
+        background-color: transparent;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .ax-sort{
+        width: 15%;
+        min-height: 10px;
+        background-color: transparent;
+        background-image: url("../img/112.png");
+        background-position: center center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+
+
+    .matn-sort{
+        min-width: 70%;
+        padding: 3px 0;
+        background-color: transparent;
+        font-size: 17px;
+        font-family: Sahel-Bold;
+        text-align: right;
+    }
+
+
+
+    .matn-arzan{
+        width: 90%;
+        padding: 3px 0;
+        background-color: transparent;
+        font-size: 17px;
+        font-family: Yekan;
+        text-align: right;
+        margin-right: 23px;
+        margin-top: 14px;
+    }
+
+
+
+    .matn-gran{
+        width: 90%;
+        padding: 3px 0;
+        background-color: transparent;
+        font-size: 17px;
+        font-family: Yekan;
+        text-align: right;
+        margin-right: 23px;
+        margin-top: 14px;
+    }
+
+}
+
+
+
+
+
+.tr-responsive-menu{
+    font-size: 18px;
+    font-family: Sahel-Bold;
+}
+
+
+@media (max-width: 454px){
+    .tr-responsive-menu{
+        font-size: 15px;
+        font-family: Sahel-Bold;
+    }
+}
+
+
+
+
+.box-REGISTER{
+    width: 500px;
+    height: 528px;
+    background-color: lightblue;
+    margin: auto;
+    margin-top: 33px;
+    border-radius: 10px;
+    padding-top: 1px;
+}
+
+
+
+.matn-register{
+    width: 455px;
+    padding: 2px 0;
+    background-color: transparent;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 27px;
+    font-family: Sahel-Bold;
+}
+
+
+
+
+@media (max-width: 454px){
+
+    .box-REGISTER{
+        width: 93%;
+        height: 525px;
+        background-color: red;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+
+
+    .matn-register{
+        width: 100%;
+        padding: 3px 0;
+        background-color: green;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+}
+
+
+
+
+@media (max-width: 454px){
+
+    .site123{
+        margin-top: 2px!important;
+    }
+
+}
+
+
+
+
+#facebook-header:hover{
+    background-color: blue;
+}
+
+
+#linkdin-header:hover{
+    background-color: cyan;
+}
+
+
+#instagram-header:hover{
+    background: linear-gradient(left , blue , red);
+    background: -moz-linear-gradient(left , blue , red);
+    background: -webkit-linear-gradient(left , blue , red);
+}
+
+
+
+#youtub-header:hover{
+    background-color: red;
+}
+
+
+
+
+
+
+.MyCenter{
+    text-align:center;
+}
+
+.MyPagin {
+    display: inline-block;
+}
+
+.MyPagin a {
+    color: white;
+    float: right;
+    padding: 8px 16px;
+    margin:0 2px;
+    text-decoration: none;
+    border:2px solid white;
+    border-radius:50px;
+}
+
+.MyPagin a:hover:not(.active) {
+    background-color: orangered;
+}
+
+.MyPagin a.active{
+    background-color:#2196F3;
+    color:#fff;
+}
+
+
+
+
+.box-comment{
+    width: 1100px;
+    height: 160px;
+    background-color: transparent;
+    float: right;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+
+.profile_comment{
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    float: right;
+    border-radius: 80px;
+    margin-top: 30px;
+}
+
+
+
+.name_user{
+    width: 800px;
+    padding: 1px 0;
+    background-color: transparent;
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+    font-size: 18px;
+    font-family: Sahel-Bold;
+}
+
+
+
+
+.comment_user{
+    width: 800px;
+    padding: 1px 0;
+    background-color: transparent;
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+    font-size: 15px;
+    font-family: yekan;
+}
+
+
+
+.Replay{
+    width: 600px;
+    height: 40px;
+    background-color: transparent;
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+
+
+
+
+@media (max-width:454px){
+
+    .box-comment{
+        width: 100%;
+        min-height: 120px;
+        background-color: transparent;
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+
+
+    .profile_comment{
+       width: 50px;
+       height: 50px;
+       float: right; 
+       margin-top: 15px;
+    }
+
+
+
+    .name_user{
+        width: 40%;
+        padding: 1px 0;
+        background-color: transparent;
+        float: right;
+        font-size: 15px;
+        margin-right: 7px;
+        margin-top: 4px;
+    }
+
+
+
+    .comment_user{
+        width: 70%;
+        padding: 1px 0;
+        background-color: transparent;
+        float: right;
+        font-size: 15px;
+        font-family: yekan;
+        margin-top: 13px;
+    }
+
+
+    .Replay{
+        width: 70%;
+        min-height: 40px;
+        background-color: transparent;
+        float: right;
+        margin-right: 60px;
+    }
+
+
+}

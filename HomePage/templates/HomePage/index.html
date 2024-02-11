@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+    <div class="container-fluid d-md-flex justify-content-md-center header site123"
+         style="min-height: 400px;margin-top: 120px;">
+
+        <div class="row">
+
+            <div class="col-md-12 col-12 m-auto m-md-auto d-md-flex justify-content-md-end" style="min-height: 400px;">
+
+                <div class="col-md-6 col-12 m-auto me-0 m-auto m-md-auto me-md-5">
+
+                    <img src="{% static "img/4.png" %}" alt="" class="col-md-10 col-12"/>
+
+                </div>
+
+                <div class="col-md-6 col-12 m-auto mt-4 m-md-auto me-md-2 d-md-block">
+
+                    <div class="col-md-12 m-md-auto text-md-center text-center" style="font-family: Sahel-Bold">
+                        <h1 style="color: pink"><span style="color: white">Hero</span>Beat</h1>
+                    </div>
+
+                    <div class="col-md-12 m-md-auto mt-md-5 m-auto mt-4 text-md-end text-center text-white"
+                         style="font-size: 18px;font-family: Yekan">در هیروبیت انواع موسیقی با سبک های مختلف منشر می شود
+                        و شما می توانید آهنگ های مورد علاقه خود را دانلود کنید و یا اینکه به صورت آنلاین گوش دهید و لذت
+                        ببرید .
+                    </div>
+
+                    <div class="col-md-12 m-md-auto mt-md-5 m-auto mt-4 d-md-flex justify-content-md-center pb-md-0 pb-4">
+
+                        <a href="{% url "Tracks:songs" %}" class="col-md-4 col-10 d-block m-auto btn btn-danger"
+                           style="font-size: 18px;font-family: Sahel-Bold;padding: 13px 0">دانلود آهنگ</a>
+
+                        <a href="{% url "Tracks:albums" %}"
+                           class="col-md-4 col-10 d-block m-auto mt-md-0 mt-4 btn btn-success me-md-5"
+                           style="font-size: 18px;font-family: Sahel-Bold;padding: 13px 0">آلبوم ها</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="container-fluid mt-md-5 mt-5 site_web123" style="background-color: transparent">
+        <div class="container" style="height: 100%;max-width: 1263px;background-color: transparent">
+
+            <div class="row">
+
+                <div class="col-md-12 m-md-auto mt-md-4 text-md-center col-12 m-auto mt-4 text-center text-white"
+                     style="background-color: transparent;font-size: 26px;font-family: Sahel-Bold">جدید ترین آهنگ ها
+                </div>
+
+                {% for track in recent_tracks %}
+                    <div class="col-md-2 float-md-end mt-md-4 mb-md-4 col-6 m-md-0 m-auto mt-4 mb-4">
+
+                        <a href="{% url "Tracks:track_detail" track.slug %}"
+                           class="text-decoration-none text-md-center text-black">
+
+                            <div class="col-md-11 bg-white m-md-auto col-12 m-auto pb-md-3 pb-3"
+                                 style="border-radius: 10px">
+
+                                <img src="{{ track.cover.url }}" alt="" class="col-md-12 col-12"
+                                     style="border-top-left-radius: 10px;border-top-right-radius: 10px"/>
+
+                                <div class="col-md-12 m-md-auto mt-md-3 mb-md-3 text-md-center col-12 m-auto mt-3 mb-3 text-center"
+                                     style="font-size: 17px;font-family: Yekan">{{ track.farsi_name }}
+                                </div>
+
+                                <div class="col-md-12 m-md-auto mt-md-3 text-md-center col-12 m-auto mt-3 text-center"
+                                     style="font-size: 16px;font-family: Yekan">{{ track.artist.first.farsi_name }}
+                                </div>
+
+                                {% if track.quality_320 and track.quality_128 %}
+                                    <a href="{{ track.quality_320.url }}"
+                                       class="btn btn-warning m-md-auto col-md-6 d-md-block mt-md-4 col-6 m-auto d-block mt-4"
+                                       style="font-size: 16px;font-family: Sahel-Bold">دانلود</a>
+                                {% elif not track.quality_320 %}
+                                    <a href="{{ track.quality_128.url }}"
+                                       class="btn btn-warning m-md-auto col-md-6 d-md-block mt-md-4 col-6 m-auto d-block mt-4"
+                                       style="font-size: 16px;font-family: Sahel-Bold">دانلود</a>
+                                {% elif not track.quality_128 %}
+                                    <a href="{{ track.quality_320.url }}"
+                                       class="btn btn-warning m-md-auto col-md-6 d-md-block mt-md-4 col-6 m-auto d-block mt-4"
+                                       style="font-size: 16px;font-family: Sahel-Bold">دانلود</a>
+                                {% endif %}
+
+                            </div>
+
+                        </a>
+
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="container-fluid mt-md-5 mt-5">
+
+        <div class="container" style="height: 100%;max-width: 1263px">
+
+            <div class="row ">
+
+                <div class="col-md-12 m-md-auto mt-md-4 text-md-center col-12 m-auto text-center mt-2 text-white"
+                     style="font-size: 26px;font-family: Sahel-Bold">لیست آرتیست ها
+                </div>
+
+                <div class="col-md-11 m-md-auto mt-md-4 d-md-flex justify-content-md-center col-12 m-auto mt-4">
+
+
+                    <table class="table table-hover mt-md-3 text-md-center mt-3 text-center"
+                           style="font-size: 17px;font-family: Sahel-Bold">
+
+                        <tr>
+                            <td class="col-md-4">نام آرتیست ها</td>
+                            <td class="col-md-4">پروفایل</td>
+                            <td class="col-md-4">بیوگرافی</td>
+                        </tr>
+
+                        {% for artist in artists_list %}
+                            <tr style="font-size: 17px;font-family: Yekan">
+                                <td class="col-md-4 col-4" style="padding: 26px 0">{{ artist.farsi_name }}</td>
+                                <td class="col-md-4 col-4" style="padding: 12px 0"><img src="{{ artist.image.url }}"
+                                                                                        alt=""
+                                                                                        class="col-md-2 col-4 rounded-5 mt-md-0 mt-2"/>
+                                </td>
+                                <td class="col-md-4 col-4"><a href="{% url "Tracks:artist_detail" artist.slug %}"
+                                                              class="btn btn-info col-md-6 col-12 mt-md-2 mt-2"
+                                                              style="padding: 12px 0">بیوگرافی</a></td>
+                            </tr>
+                        {% endfor %}
+
+                    </table>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="container-fluid mt-md-5 mt-5" style="background-color: transparent">
+
+        <div class="container" style="height: 100%;max-width: 1263px;background-color: transparent;">
+
+            <div class="row">
+
+                <div class="col-md-12 m-md-auto mt-md-4 text-md-center col-12 m-auto text-center mt-4 text-white"
+                     id="#Albums" style="font-size: 26px;font-family: Sahel-Bold">آلبوم ها
+                </div>
+
+                {% for album in recent_albums %}
+                    <div class="col-md-2 float-md-end mt-md-4 mb-md-4 col-6 m-md-0 m-auto mt-4 mb-4">
+
+                        <a href="{% url "Tracks:album_detail" album.slug %}" class="text-decoration-none text-md-center text-black">
+
+                            <div class="col-md-11 bg-white m-md-auto col-12 m-auto pb-md-3 pb-3"
+                                 style="border-radius: 10px">
+
+                                <img src="{{ album.image.url }}" alt="" class="col-md-12 col-12"
+                                     style="border-top-left-radius: 10px;border-top-right-radius: 10px"/>
+
+                                <div class="col-md-12 m-md-auto mt-md-3 mb-md-3 text-md-center col-12 m-auto mt-3 mb-3 text-center"
+                                     style="font-size: 17px;font-family: Yekan">{{ album.farsi_name }}
+                                </div>
+
+                                <div class="col-md-12 m-md-auto mt-md-3 text-md-center col-12 m-auto mt-3 text-center"
+                                     style="font-size: 16px;font-family: Yekan">{{ album.artist.first.farsi_name }}
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

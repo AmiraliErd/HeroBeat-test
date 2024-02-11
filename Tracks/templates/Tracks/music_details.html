@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="container-fluid site123" style="margin-top: 155px;">
+
+        <div class="container" style="height: 100%;max-width: 1263px;">
+
+            <div class="row">
+
+                <div class="col-md-9 m-md-auto mt-md-4 text-md-center col-12 m-auto mt-4 text-center text-white"
+                     style="font-size: 26px;font-family: Sahel-Bold">
+                    {{ track.artist.first }} - {{ track.name }}</div>
+
+                <br/>
+
+
+                <div class="col-md-10 m-md-auto mt-md-5 col-12 m-auto mt-4">
+
+                    <div class="col-md-4 float-md-end me-md-4 col-12 m-md-0 m-auto">
+
+                        <div class="col-md-12 m-md-auto col-12 m-auto">
+                            <img src="{{ track.cover.url }}" alt="" class="col-md-12 col-12 mb-md-4 mb-3"/>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5 float-md-start ms-md-4 mt-md-4 col-12 m-md-0 mt-4">
+
+                        <div class="col-md-12 m-md-auto mt-md-4 col-12 m-auto mt-4" style="z-index: 1">
+
+                            {% if track.quality_320 %}
+                                <audio controls autoplay class="col-md-12 pt-md-1 col-12 pt-1 col-12"
+                                       style="border-radius: 5px;">
+                                    <source src="{{ track.quality_320.url }}" type="audio/mpeg"/>
+                                </audio>
+                            {% else %}
+                                <audio controls autoplay class="col-md-12 pt-md-1 col-12 pt-1 col-12"
+                                       style="border-radius: 5px;">
+                                    <source src="{{ track.quality_128.url }}" type="audio/mpeg"/>
+                                </audio>
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="col-md-12 m-md-auto mt-md-5 col-12 m-auto mt-4">
+
+                            {% if track.quality_320 %}
+                                <a href="{{ track.quality_320.url }}"
+                                   class="btn btn-warning m-md-auto col-md-12 p-md-2 col-12 p-2 mb-md-3 mb-3"
+                                   download="dd"
+                                   style="font-size: 19px;font-family: Sahel-Bold">دانلود با کیفیت 320</a>
+                            {% endif %}
+
+                            {% if track.quality_128 %}
+                                <a href="{{ track.quality_128.url }}"
+                                   class="btn btn-warning m-md-auto col-md-12 p-md-2 mt-md-5 col-12 p-2 mt-4 mb-md-3 mb-3"
+                                   style="font-size: 19px;font-family: Sahel-Bold">دانلود با کیفیت 128</a>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-7 m-md-auto mt-md-3 col-12 m-auto mt-4">
+
+                    <div class="col-md-12 m-md-auto mt-md-2 text-md-center col-12 m-auto text-center text-white mt-4 mb-md-4 mb-4"
+                         style="font-size: 22px;font-family: Sahel-Bold">متن آهنگ
+                    </div>
+
+                    <div class="col-md-8 m-md-auto mt-md-2 text-md-center col-12 m-auto text-center text-white mt-4 mb-md-4 mb-4"
+                         style="font-size: 18px;font-family: Yekan">{{ track.lyric }}</div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="container-fluid mt-md-5 mt-5" id="comment">
+
+        <div class="container" style="height: 100%;max-width: 1263px">
+
+            <div class="row">
+
+                <div class="col-md-11 m-md-auto"
+                     style="border-style: solid;border-width: 4px;border-color: white;border-radius: 10px;">
+
+                    <div class="col-md-11 m-md-auto mt-md-4 text-md-center col-12 m-auto mt-3 text-center text-white"
+                         style="font-size: 26px;font-family: Sahel-Bold">نقد و نظرات
+                    </div>
+
+
+                    <form method="post" action="" class="mt-md-4 mb-md-4 mt-4 mb-4 p-md-3"
+                          style="font-size: 17px;font-family: Yekan">
+                        {% csrf_token %}
+                        <input type="hidden" id="parent_id" name="parent_id" value="">
+
+                        <div class="mb-3">
+                            <label class="form-label text-white">نام و نام خانوادگی</label>
+                            <input name="user" type="text" class="form-control" placeholder="نام و نام خانوادگی">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-white">ایمیل</label>
+                            <input name="email" type="email" class="form-control" placeholder="ایمیل :">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-white">دیدگاه</label>
+                            <textarea name="body" id="body" class="form-control" rows="3" placeholder="دیدگاه خود را بنویسید"></textarea>
+                        </div>
+
+
+                        <input type="submit" value="ارسال" class="btn btn-warning col-md-2 col-2">
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-fluid mt-md-5 mt-5">
+
+        <div class="container" style="height: 100%;max-width: 1263px;">
+
+            <div class="row">
+
+                <div class="col-md-11 m-md-auto col-12 m-auto" style="border: 3px solid white;border-radius: 15px;">
+
+                    <div class="col-md-12 m-md-auto mt-md-4 text-md-center col-12 m-auto mt-4 text-center text-white"
+                         style="font-size: 24px;font-family: yekan;">کامنت ها
+                    </div>
+
+                    {% for comment in track.comments.all %}
+                        {% if comment.parent == None and comment.is_published == True %}
+                            <div class="box-comment">
+
+                                <div class="profile_comment">
+                                    <img src="{% static 'img/120.jpg' %}" alt="" class="col-md-12 col-12"
+                                         style="border-radius: 90px;"/>
+                                </div>
+
+                                <div class="name_user text-white">{{ comment.user }}</div>
+
+                                <div class="comment_user text-white">{{ comment.body }}</div>
+
+                                <div onclick="set_value({{ comment.id }})" class="Replay"><a href="#comment" class="col-md-3 btn btn-warning border-3"
+                                                       style="font-size: 16px;font-family: Sahel-Bold;">پاسخ</a></div>
+
+                            </div>
+                            {% for reply in comment.replies.all %}
+                                {% if reply.is_published == True %}
+                                    <div class="box-comment me-md-5">
+
+                                        <div class="profile_comment">
+                                            <img src="{% static 'img/120.jpg' %}" alt="" class="col-md-12 col-12"
+                                                 style="border-radius: 90px;"/>
+                                        </div>
+
+                                        <div class="name_user text-white">{{ reply.user }}</div>
+
+                                        <div class="comment_user text-white">{{ reply.body }}</div>
+
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script>
+function set_value(id){
+    document.getElementById('parent_id').value = id
+}
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
